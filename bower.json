@@ -1,0 +1,17 @@
+{
+  "name": "bootstrap-ohm2-utils",
+  "authors": [
+    "Oliver Herrera <oliver@ohm2.cl>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
