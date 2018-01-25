@@ -6,6 +6,7 @@ function ohm2_postJSON(url, data, onSuccess, onError) {
 	onError = typeof onError === "undefined" ? function(){} : onError;
 	data.csrfmiddlewaretoken = Cookies.get('csrftoken')
     
+    
     var jqxhr = $.ajax({
 		type: "POST",
 		url: url,
