@@ -29,3 +29,9 @@ function ohm2_blockScreen(options) {
 function ohm2_unblockScreen(options) {
 	$('body').loading('stop');
 }
+function ohm2_redirect(url) {
+	window.location.replace(url);
+}
+function ohm2_followLink(url) {
+	window.location.href = url;
+}
