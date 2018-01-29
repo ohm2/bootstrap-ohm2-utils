@@ -35,3 +35,21 @@ function ohm2_redirect(url) {
 function ohm2_followLink(url) {
 	window.location.href = url;
 }
+function ohm2_bindInteger() {
+	$('.ohm2-integer').keypress(function(event) {
+		if (event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46) {
+			return true;
+		} else if ((event.which < 48 || event.which > 57)) {
+			event.preventDefault();
+		}
+	});
+}
+function ohm2_bindNumber() {
+	$('.ohm2-number').keypress(function(event) {
+		if (event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46) {
+			return true;
+		} else if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+			event.preventDefault();
+		}
+	});
+}
