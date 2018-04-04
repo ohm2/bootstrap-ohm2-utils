@@ -4,17 +4,25 @@ function ohm2_postJSON(url, data, onSuccess, onError) {
     data = typeof data === "undefined" ? {} : data;
     onSuccess = typeof onSuccess === "undefined" ? function(){} : onSuccess;
 	onError = typeof onError === "undefined" ? function(){} : onError;
-	data.csrfmiddlewaretoken = Cookies.get('csrftoken')
-    
-
-    var jqxhr = $.ajax({
+	
+	var csrfmiddlewaretoken = Cookies.get('csrftoken')
+	
+	var options = {
 		type: "POST",
 		url: url,
-		data: data,
+		data: JSON.stringify(data),
+		dataType: 'json',
+		contentType: 'application/json; charset=UTF-8',
 		success: onSuccess,
 		error: onError,
-		dataType: 'json',
-    })
+	}
+
+	if (csrfmiddlewaretoken) {
+		options.headers = {
+			'X-CSRFToken': csrfmiddlewaretoken
+		}
+	}
+	var jqxhr = $.ajax(options)
     return jqxhr
 }
 function ohm2_isEmail(email) {
